@@ -18,14 +18,15 @@ class CandidateFootstepGenerator:
         """
 
         # Template model parameters (Paper Section III-A)
-        self.v_bar = 0.2
-        self.T_bar = 0.8
+        self.v_bar = 2.5
+        self.T_bar = 0.3
         self.alpha = 0.1
         self.l = lateral_distance
+        self.theta_max_step = np.pi
 
         # Kinematic constraints (Paper Section III-B)
-        self.d_ax = 0.3
-        self.d_ay = 0.15
+        self.d_ax = 0.5
+        self.d_ay = 0.25
 
     def compute_step_duration(self, v_norm):
         """
@@ -102,13 +103,12 @@ class CandidateFootstepGenerator:
         footsteps.append({
             "pos": previous_foot_pose,
             "time": 0.0,
-            "duration": 1.0,
-            "side": -1,
+            "duration": 1.2,
+            "side": 1,
         })
 
         # Next foot will be the left one
-        next_foot_side = 1
-
+        next_foot_side = -1
         while current_time < duration:
             vx, vy, w = v_cmd
             v_norm = np.sqrt(vx**2 + vy**2)
@@ -156,11 +156,10 @@ class CandidateFootstepGenerator:
             # 5. Final validated foot pose
             final_pos_world = previous_foot_pose[:2] + (R_prev @ diff_local)
 
-            theta_max_step = np.pi / 8.0
             delta_theta = ideal_foot_theta - previous_foot_pose[2]
 
             delta_theta = (delta_theta + np.pi) % (2 * np.pi) - np.pi
-            delta_theta = np.clip(delta_theta, -theta_max_step, theta_max_step)
+            delta_theta = np.clip(delta_theta, -self.theta_max_step, self.theta_max_step)
 
             final_theta = previous_foot_pose[2] + delta_theta
 
@@ -168,8 +167,7 @@ class CandidateFootstepGenerator:
                 final_pos_world[0],
                 final_pos_world[1],
                 final_theta,
-            ])
-
+             ])
             # Store footstep
             current_time += Ts
             footsteps.append({
