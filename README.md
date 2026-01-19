@@ -21,7 +21,8 @@ The code is intended for humanoid robotics research and walking stability analys
 ├── steps_generator.py       # Kinematic footstep generator
 ├── vizualisation.py         # 2D plots, top view and 3D visualization tools
 ├── environment.yml          # Conda environment definition
-└── ROBOT projet.png         # Project poster
+├── Report.pdf               # Report of the project
+└── Poster.png               # Project poster
 
 ```  
 
