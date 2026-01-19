@@ -11,6 +11,8 @@ This repository implements a Model Predictive Control (MPC) framework for bipeda
 
 The code is intended for humanoid robotics research and walking stability analysis.
 
+You can check our [report](https://github.com/AlexHibo/Robotics-Project/blob/main/Report.pdf) for more details about our work
+
 ## 📁 Project structure
 
 ```text
