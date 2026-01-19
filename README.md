@@ -1,4 +1,4 @@
-# 🦿 Model Predictive Control for Bipedal Locomotion
+# Model Predictive Control for Bipedal Locomotion
 
 This repository implements a Model Predictive Control (MPC) framework for bipedal walking based on the Linear Inverted Pendulum Model (LIPM). It includes
 
@@ -34,7 +34,7 @@ The code is intended for humanoid robotics research and walking stability analys
 - `vizualisation.py` provides plotting utilities and humanoid visualization with inverse kinematics  
 
 
-## ⚙️ Installation
+## Installation
 
 Create and activate the Conda environment
 
@@ -54,7 +54,7 @@ Main dependencies
 - meshcat  
 - example_robot_data  
 
-## ▶️ Running the simulation
+## Running the simulation
 
 From the root of the repository, run
 
@@ -77,7 +77,7 @@ vizualisation.run_robot_visualization(history_ref, indicator, history_com, histo
 
 ```
 
-## 🧠 Dynamic model and MPC formulation
+## Dynamic model and MPC formulation
 
 The walking controller is based on the Linear Inverted Pendulum Model with state
 
@@ -96,7 +96,7 @@ The MPC uses jerk as control input, tracks a reference ZMP trajectory and enforc
 The two dimensional formulation stacks the sagittal and lateral directions into a single optimization problem, which allows the controller to consider coupled X and Y motions.
 
 
-## 👣 Footstep generation
+## Footstep generation
 
 The file `steps_generator.py` implements a kinematic template based footstep generator
 
@@ -107,7 +107,7 @@ The file `steps_generator.py` implements a kinematic template based footstep gen
 
 The output is a list of footsteps, each with position, orientation, duration and support side.
 
-## 🌀 Nonlinear trajectory extension
+## Nonlinear trajectory extension
 
 Beyond straight line walking with decoupled X and Y motions, the project also supports a nonlinear walking trajectory extension
 
@@ -118,7 +118,7 @@ Beyond straight line walking with decoupled X and Y motions, the project also su
 
 This makes it possible to study more realistic humanoid gaits such as turning, gentle curves and complex trajectories.
 
-## 💥 External and centrifugal forces
+## External and centrifugal forces
 
 In `main3.py` you can configure
 
@@ -156,7 +156,7 @@ Using Pinocchio, Meshcat and the Talos model, the project can animate
 
 This is useful to qualitatively assess gait realism and robustness.
 
-## 🧪 Fall detection
+## Fall detection
 
 A simple fall detection logic is included
 
@@ -167,7 +167,7 @@ A simple fall detection logic is included
 This allows quick evaluation of the controller robustness under strong perturbations.
 
 
-## 🎯 Goals
+## Goals
 
 The main goals of this repository are
 
@@ -178,11 +178,11 @@ The main goals of this repository are
 - provide clear visual tools for understanding the generated gaits  
 
 
-## 🧑‍💻 Author
+## Author
 
-This code base was developed by Swann Cordier and Alexandre Mallez as part of our academic project during the MVA Robotics class. The associated presentation poster is available as `ROBOT projet.png` in this repository.
+This code base was developed by Alexandre Mallez and Swann Cordier as part of our academic project during the MVA Robotics class. The associated presentation poster is available as `ROBOT projet.png` in this repository.
 
-## 📚 Scientific references
+## Scientific references
 
 The `articles` folder contains the main scientific papers that supported the development of this project. These references cover
 
